@@ -1,6 +1,26 @@
 import { getApiBaseUrl } from "@/lib/apiBase";
 import type { ApiResponse, HttpMethod } from "@/types";
 
+// Network helpers / defaults
+const DEFAULT_TIMEOUT = 15000; // 15s default
+const MIN_REQUEST_INTERVAL = 250; // 250ms between identical requests
+const REFRESH_IN_PROGRESS_KEY = "refresh_in_progress";
+const lastRequestTime: Map<string, number> = new Map();
+
+// Global error callback used by components to surface API errors
+export type ApiErrorCallback = (payload: {
+  message: string;
+  endpoint?: string;
+  timestamp: number;
+  status?: number;
+}) => void;
+
+let globalErrorCallback: ApiErrorCallback | undefined;
+
+export function setApiErrorCallback(cb: ApiErrorCallback | undefined) {
+  globalErrorCallback = cb;
+}
+
 class ApiError extends Error {
   constructor(message: string, public status: number, public details?: any) {
     super(message);
@@ -218,6 +238,9 @@ async function refreshAccessToken(): Promise<boolean> {
     if (data.refresh_token) {
       localStorage.setItem("refresh_token", data.refresh_token);
     }
+
+    // Refresh succeeded
+    return true;
   } finally {
     sessionStorage.removeItem(REFRESH_IN_PROGRESS_KEY);
   }

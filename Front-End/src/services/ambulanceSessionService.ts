@@ -25,6 +25,8 @@ export interface AmbulanceSession {
 }
 
 class AmbulanceSessionService {
+  private parseSessionDate = (s: AmbulanceSession) =>
+    new Date(s.started_at || s.session_start || s.created_at);
   /**
    * Fetch recent ambulance sessions
    */
@@ -39,11 +41,7 @@ class AmbulanceSessionService {
 
       // Sort by session_start descending and limit
       const sortedSessions = response.data
-        .sort(
-          (a, b) =>
-            new Date(b.session_start).getTime() -
-            new Date(a.session_start).getTime()
-        )
+        .sort((a, b) => this.parseSessionDate(b).getTime() - this.parseSessionDate(a).getTime())
         .slice(0, limit);
 
       return { success: true, data: sortedSessions, error: null };
@@ -98,11 +96,7 @@ class AmbulanceSessionService {
           (session) =>
             session.session_end === null || session.status !== "completed"
         )
-        .sort(
-          (a, b) =>
-            new Date(b.session_start).getTime() -
-            new Date(a.session_start).getTime()
-        );
+        .sort((a, b) => this.parseSessionDate(b).getTime() - this.parseSessionDate(a).getTime());
 
       return { success: true, data: activeSessions, error: null };
     } catch (err) {

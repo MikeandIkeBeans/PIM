@@ -10,7 +10,7 @@ import {
 
 interface ApiError {
   message: string;
-  endpoint: string;
+  endpoint?: string;
   timestamp: number;
   status?: number;
 }
