@@ -219,12 +219,6 @@ python ./Back-End/Testing_files/broadcaster.py --room {room_id} --video_device {
   - Windows `Realtek Audio` for Realtek audio
   - MacOS `0` for Macbook microphone
 
-## 5. Optional Cloud Deploy
-
-* Backend: Deploy FastAPI on **Azure** or **AWS Lambda + API Gateway**
-* Frontend: Deploy on **Vercel/Netlify**
-* Database: Supabase or hosted PostgreSQL
-
 # Key Features
 
 ## 🔴 **Live Patient Monitoring**
