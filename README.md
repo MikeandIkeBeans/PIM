@@ -60,29 +60,8 @@ By combining **edge computing**, **computer vision**, and **machine learning**, 
 | **ERD**<br>Relationship diagram of supabase tables. | ![Edge Stream Simulation](https://github.com/user-attachments/assets/19edfff5-49a9-484f-8240-d7aaad03d763) |
 | **Raspberry pi 4**<br>Edge device, meant to run ai inference and handle video recording in ambulances. | ![AI Output](https://github.com/user-attachments/assets/3cda8c3a-1f19-468b-acfb-10ee6441a871) |
 
-Additional Screenshots:
-
-![Image](https://github.com/user-attachments/assets/e4975e16-84d4-41da-bfce-4849d732eb41)
-![Image](https://github.com/user-attachments/assets/43201b92-210f-4900-939d-03bf0cce1743)
-![Image](https://github.com/user-attachments/assets/1226fefd-6a3a-4371-8f7d-307c578d7746)
-![Image](https://github.com/user-attachments/assets/76ff5830-a69b-439e-a7cb-7c2a36e87457)
-![Image](https://github.com/user-attachments/assets/3cda8c3a-1f19-468b-acfb-10ee6441a871)
 
 # System Architecture
-
-```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Raspberry     │    │   FastAPI       │    │   Next.js       │
-│   Pi 4 Devices  │───▶│   Backend       │───▶│   Frontend      │
-│                 │    │                 │    │                 │
-│ • Camera Module │    │ • REST APIs     │    │ • AI Dashboard  │
-│ • Edge AI       │    │ • ML Models     │    │ • Live Streaming│
-│ • Live Stream   │    │ • WebRTC        │    │ • Camera Mgmt   │
-│ • Pose Detection│    │ • Database      │    │ • Video Analysis│
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-```
-
-Alternative representation:
 
 ```
 ┌─────────────────┐    ┌──────────────────────┐    ┌──────────────────┐
@@ -100,14 +79,6 @@ Alternative representation:
 | **RPi 4 Edge Devices** | Python + MediaPipe + PyTorch    | Real-time movement detection with local AI processing      |
 | **Backend API**        | FastAPI + Supabase + PostgreSQL | Central data processing, ML models, and API services       |
 | **Frontend Dashboard** | Next.js 15 + React + TypeScript | AI monitoring interface for camera management and analysis |
-
-Alternative:
-
-| Component              | Technology                    | Purpose                                          |
-| ---------------------- | ----------------------------- | ------------------------------------------------ |
-| **RPi 4 Edge**         | Python, MediaPipe, PyTorch    | Local pose detection & streaming                 |
-| **Backend API**        | FastAPI, Supabase/PostgreSQL  | Device/session APIs, inference services, storage |
-| **Frontend Dashboard** | Next.js 15, React, TypeScript | Multi-camera live monitoring & analytics         |
 
 # Quick Start Guide
 
