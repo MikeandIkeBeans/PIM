@@ -116,19 +116,6 @@ uvicorn main:app --reload
 # API available at: http://localhost:8000
 ```
 
-Alternative instructions:
-
-1. Open a terminal window and navigate to the back-end directory:
-   ```bash
-   cd PIM/Back-End
-   ```
-2. Start the local server for testing:
-   ```bash
-   uvicorn main:app --reload
-   ```
-3. After starting, access the API documentation at:
-   [http://localhost:3000/docs](http://localhost:3000/docs) or [http://localhost:8000/docs](http://localhost:8000/docs)
-
 ## 2. Frontend Setup
 
 ```bash
@@ -146,24 +133,6 @@ npm run dev
 # Frontend available at: http://localhost:3000
 ```
 
-Alternative instructions:
-
-1. Open a second terminal window without closing the back-end server.
-2. Navigate to the front-end directory:
-   ```bash
-   cd PIM/Front-End
-   ```
-3. Build the project to check for errors:
-   ```bash
-   npm run build
-   ```
-4. Start the development server:
-   ```bash
-   npm run dev
-   ```
-5. The front-end will be available at:
-   [http://localhost:8000](http://localhost:8000) or [http://localhost:3000](http://localhost:3000)
-
 ## 3. RPi 4 Edge Device Setup
 
 ```bash
@@ -180,13 +149,6 @@ python3 pose_model_capture.py --device camera_module --config config/
 # For detailed setup instructions, see Raspberry-Pi/README.md
 ```
 
-Alternative:
-
-```bash
-cd Raspberry-Pi
-pip install -r requirements-rpi.txt
-python3 pose_model_capture.py --device camera_module
-```
 
 ## 4. Camera Streaming Setup
 
@@ -308,13 +270,6 @@ PIM/
 
 **Note**: Sessions are automatically initiated by RPi 4 devices. Frontend provides monitoring and analysis, not manual session control.
 
-Alternative representation:
-
-1. **RPi auto-starts session →** captures frames.
-2. **Local CV/AI →** MediaPipe landmarks + edge inference.
-3. **Stream + results →** FastAPI via WebRTC/REST; persisted to DB.
-4. **Dashboard →** real-time views + analytics.
-
 ## API Communication Pattern
 
 ```typescript
@@ -332,21 +287,6 @@ if (response.data) {
 } else {
   // Handle error case
 }
-```
-
-Alternative:
-
-```ts
-// Unified response contract
-interface ApiResponse<T> {
-  data: T | null;
-  error: string | null;
-  status?: number;
-}
-
-// Usage example
-const res = await patientService.getById(patientId);
-if (res.data) { /* handle success */ } else { /* handle error */ }
 ```
 
 # Development Workflow
