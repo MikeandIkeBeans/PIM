@@ -743,26 +743,6 @@ az webapp deployment slot swap -g pim-rg -n fastapibackend-amfucydqayg9h8gb --sl
 - **Database Optimization**: Indexed queries and connection pooling
 - **Frontend Caching**: Service worker and static asset optimization
 
-# Future Roadmap
-
-## 🔮 Planned Features
-
-- [ ] Mobile app for healthcare providers
-- [ ] Advanced ML models for specific medical conditions
-- [ ] Integration with hospital management systems
-- [ ] Real-time analytics and reporting dashboard
-- [ ] Multi-language support for international deployment
-
-Alternative listing:
-
-## 📈 Future Development
-
-* [ ] Mobile companion app
-* [ ] Model variants for specific conditions
-* [ ] Hospital systems integration
-* [ ] Real-time analytics & reporting
-* [ ] Internationalization / localization
-
 # Licenses
 
 - google-ai-edge/mediapipe is licensed under the Apache License 2.0
