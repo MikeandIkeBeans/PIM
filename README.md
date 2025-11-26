@@ -492,27 +492,6 @@ npm test -- src/__tests__/Dashboard.test.tsx
 * pytest-cov ≥ 4.1.0
 * pytest-mock ≥ 3.11.0
 
-# Deployment
-
-## Deployment Architecture
-
-### Production Environment
-
-```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Edge Devices  │    │   Cloud Backend │    │   Web Frontend  │
-│                 │    │                 │    │                 │
-│ Multiple RPi 4  │───▶│ AWS/GCP/Azure   │───▶│ Vercel/Netlify  │
-│ Hospital Units  │    │ Docker + K8s    │    │ CDN Deployment  │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-                                │
-                       ┌─────────────────┐
-                       │   Database      │
-                       │ Supabase/       │
-                       │ PostgreSQL      │
-                       └─────────────────┘
-```
-
 # 🚀 Deployment Appendix (Azure)
 
 This app deploys **both** Frontend (Next.js) and Backend (FastAPI) to **Azure App Service** and uses **Supabase (PostgreSQL)** for data/storage. Raspberry Pi devices stream to the backend over WebRTC/REST.
